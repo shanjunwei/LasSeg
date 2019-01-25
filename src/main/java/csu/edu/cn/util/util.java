@@ -3,22 +3,20 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class util {
-
-
-    //   å±æ ¼åŠ©è¯è¯†åˆ«
+    //   Êô¸ñÖú´ÊÊ¶±ğ
     public static boolean CaCaseRecognition(String segment) {
-        // å±æ ¼åŠ©è¯æ­£åˆ™éªŒè¯
+        // Êô¸ñÖú´ÊÕıÔòÑéÖ¤
         String regEx = "\\\\xe0\\\\xbd\\\\x91";
-        // ç¼–è¯‘æ­£åˆ™è¡¨è¾¾å¼
+        // ±àÒëÕıÔò±í´ïÊ½
         Pattern pattern = Pattern.compile(regEx);
         Matcher matcher = pattern.matcher(segment);
         /*while (matcher.find()){
             System.out.println(matcher.group());
         }*/
-        return matcher.find();  // å­—ç¬¦ä¸²æ˜¯å¦ä¸æ­£åˆ™è¡¨è¾¾å¼ç›¸åŒ¹é…
+        return matcher.find();  // ×Ö·û´®ÊÇ·ñÓëÕıÔò±í´ïÊ½ÏàÆ¥Åä
     }
 
-    // å°†byte[] è½¬æ¢æˆ åå…­è¿›åˆ¶å­—ç¬¦ä¸²
+    // ½«byte[] ×ª»»³É Ê®Áù½øÖÆ×Ö·û´®
     public static String bytesToHexStr(byte[] bytes) {
          char[] HEX_CHAR = {'0', '1', '2', '3', '4',
                 '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f'};
@@ -31,15 +29,15 @@ public class util {
         return new String(hexChar);
     }
 
-    //  16è¿›åˆ¶å­—ç¬¦ä¸²è½¬æˆ å­—ç¬¦ä¸²
+    //  16½øÖÆ×Ö·û´®×ª³É ×Ö·û´®
 
 
     public static void main(String[] args) throws Exception {
 
-        String  utf16Str  =    bytesToHexStr("ä¸Šæµ·".getBytes());
+        String  utf16Str  =    bytesToHexStr("ÉÏº£".getBytes());
 
         System.out.println(unicode(utf16Str));
-        System.out.println(bytesToHexStr("ä¸Šæµ·".getBytes()));  // \xe4\xb8\x8a\xe6\xb5\xb7
+        System.out.println(bytesToHexStr("ÉÏº£".getBytes()));  // \xe4\xb8\x8a\xe6\xb5\xb7
 
     }
 

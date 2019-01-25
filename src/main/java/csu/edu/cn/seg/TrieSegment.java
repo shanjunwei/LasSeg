@@ -2,6 +2,7 @@ package csu.edu.cn.seg;
 
 import csu.edu.cn.trie.bintrie.BinTrie;
 import csu.edu.cn.util.Constans;
+import csu.edu.cn.util.TextUtility;
 
 import java.io.*;
 import java.util.TreeMap;
@@ -13,7 +14,7 @@ import java.util.TreeMap;
  **/
 public class TrieSegment {
     public BinTrie trie = new BinTrie();
-    public int MAX_WORD_LEN = 1;   // å­—å…¸ä¸­è¯çš„æœ€å¤§é•¿åº¦
+    public int MAX_WORD_LEN = 1;   // ×ÖµäÖĞ´ÊµÄ×î´ó³¤¶È
 
     public TrieSegment() {
         initDict(Constans.lasDicPath);
@@ -22,21 +23,25 @@ public class TrieSegment {
         initDict(Constans.lasDicPath);
     }*/
     /**
-     * ä»æ–‡ä»¶åˆå§‹åŒ–å­—å…¸
+     * ´ÓÎÄ¼ş³õÊ¼»¯×Öµä
      *
      * @param dicPath
      */
     public void initDict(String dicPath) {
         TreeMap<String, Integer> treeMap = new TreeMap<>();
         try {
-            // ä»¥utf-8è¯»å–æ–‡ä»¶
+            // ÒÔutf-8¶ÁÈ¡ÎÄ¼ş
             FileInputStream fis = new FileInputStream(dicPath);
             InputStreamReader reader = new InputStreamReader(fis, "UTF-8");
             BufferedReader br = new BufferedReader(reader);
             String str = null;
             while ((str = br.readLine()) != null) {
+                String  temp  =  str.substring(0,str.indexOf("-"));   // È¥µôºó×º -ÒÔºóµÄ×Ö·û
+                if(TextUtility.isChineseStr(temp)){
+                    str  = temp;
+                }
                 treeMap.put(str, 0);
-                MAX_WORD_LEN = Math.max(str.split("-").length, MAX_WORD_LEN);  // æ›´æ–°å­—å…¸é‡Œè¯çš„æœ€é•¿å­—æ•°
+                MAX_WORD_LEN = Math.max(str.split("-").length, MAX_WORD_LEN);  // ¸üĞÂ×ÖµäÀï´ÊµÄ×î³¤×ÖÊı
             }
             br.close();
             reader.close();
@@ -46,6 +51,11 @@ public class TrieSegment {
             e.printStackTrace();
         }
         trie.build(treeMap);
+    }
+
+    public static void main(String[] args) {
+
+        System.out.println("ÖĞÎÄ-  dm".substring(0,"ÖĞÎÄ-  dm".indexOf("-")));
     }
 
 }

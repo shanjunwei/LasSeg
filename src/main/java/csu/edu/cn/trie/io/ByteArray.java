@@ -5,7 +5,7 @@ import static csu.edu.cn.Logger.logger;
 /**
  * 对字节数组进行封装，提供方便的读取操作
  *
- * @author hankcs
+ *
  */
 public class ByteArray
 {

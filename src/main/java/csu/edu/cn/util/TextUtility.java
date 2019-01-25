@@ -1,51 +1,16 @@
 package csu.edu.cn.util;
 
 import csu.edu.cn.pojo.Term;
-
 import java.io.PrintWriter;
 import java.io.StringWriter;
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.regex.Pattern;
 
 /**
  * 文本工具类
  */
 public class TextUtility {
-    /**
-     * 正向最大匹配
-     * @param str
-     * @return
-     */
-    /*public  List<String> leftMax(String str) {
-
-        List<String> results = new ArrayList<String>();
-        String input = str;
-
-        while( input.length() > 0 ) {
-            String subSeq;
-            if( input.length() < MAX_LENGTH)  // 每次取小于或者等于最大字典长度的子串进行匹配
-                subSeq = input;
-            else
-                subSeq = input.substring(0, MAX_LENGTH);
-
-            while( subSeq.length() > 0 ) {
-                // 如果字典中含有该子串或者子串颗粒度为1，子串匹配成功
-                if( dictionary.contains(subSeq) || subSeq.length() == 1) {
-                    results.add(subSeq);
-                    // 输入中从前向后去掉已经匹配的子串
-                    input = input.substring(subSeq.length());
-                    break;      // 退出循环，进行下一次匹配
-                } else {
-                    // 去掉匹配字段最后面的一个字
-                    subSeq = subSeq.substring(0, subSeq.length() - 1);
-                }
-            }
-
-        }
-        return results;
-    }*/
-
     /**
      * 将异常转为字符串
      *
@@ -57,6 +22,13 @@ public class TextUtility {
         PrintWriter pw = new PrintWriter(sw);
         e.printStackTrace(pw);
         return sw.toString();
+    }
+
+    /**
+     *  识别中文字符
+     */
+    public static boolean isChineseStr(String text) {   // 可以识别繁体字
+        return Pattern.compile("[\\u4e00-\\u9fa5]+").matcher(text).matches();
     }
 
     /**

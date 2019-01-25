@@ -15,7 +15,7 @@ import java.util.concurrent.LinkedBlockingDeque;
 /**
  * 基于双数组Trie树的AhoCorasick自动机
  *
- * @author hankcs
+ *
  */
 public class AhoCorasickDoubleArrayTrie<V>
 {

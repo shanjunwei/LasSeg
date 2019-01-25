@@ -17,7 +17,7 @@ import static csu.edu.cn.Logger.logger;
 /**
  * 一些常用的IO操作
  *
- * @author hankcs
+ *
  */
 public class IOUtil {
     /**

@@ -8,7 +8,7 @@ import java.util.TreeMap;
 
 /**
  * trie树接口
- * @author hankcs
+ *
  */
 public interface ITrie<V>
 {

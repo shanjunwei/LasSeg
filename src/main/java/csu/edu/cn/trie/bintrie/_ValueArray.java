@@ -2,7 +2,7 @@ package csu.edu.cn.trie.bintrie;
 
 /**
  * 对值数组的包装，可以方便地取下一个
- * @author hankcs
+ *
  */
 public class _ValueArray<V>
 {
